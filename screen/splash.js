@@ -1,10 +1,8 @@
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import { View, Text, Image } from "react-native";
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
 import styles from "../component/styling";
 import Button from "../component/Botton";
 export default function splash() {
-  const navigation = useNavigation();
   return (
     <View style={styles.scontainer}>
       <View style={{ top: 40 }}>
@@ -19,7 +17,7 @@ export default function splash() {
           source={require("../assets/p1.png")}
         />
       </View>
-      <Button title="Get Started" navi="login" bg="#5956e9" />
+      <Button title="Get Started" navi="login" bg="#5956e9" textclr="white" />
     </View>
   );
 }

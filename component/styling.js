@@ -68,12 +68,12 @@ const styles = StyleSheet.create({
     color: "blue",
   },
   bview: {
-    backgroundColor: "#5956e9",
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
     width: 250,
     height: 60,
+    bottom: 30,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 10,
   },
   buttonz: {
     fontSize: 20,

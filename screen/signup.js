@@ -1,16 +1,17 @@
 import {
   View,
   Text,
-  StyleSheet,
   TextInput,
   TouchableOpacity,
   ScrollView,
 } from "react-native";
 import React from "react";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import styles from "../component/styling";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
 import Botton from "../component/Botton";
+import Input from "../component/Input";
 
 export default function login({ navigation }) {
   return (
@@ -36,27 +37,37 @@ export default function login({ navigation }) {
                   size={15}
                   color="black"
                 />
-                Email
+                Password
               </Text>
-              <TextInput
-                style={styles.input}
-                keyboardType="email"
-                placeholder="Enter - Email"
+              <Input
+                icons=""
+                tshow="Email"
+                keybtype="email"
+                placehol="Email @"
+                sect="fale"
               />
               <Text style={{ flexDirection: "row", color: 95 }}>
                 <MaterialIcons name="lock-outline" size={20} color="black" />
                 Password
               </Text>
-              <TextInput
-                style={styles.input}
-                secureTextEntry={true}
-                placeholder="Passwords"
+              <Input
+                icons='<MaterialCommunityIcons name="email-outline" size={15} color="black" />'
+                tshow="Password"
+                keybtype="password"
+                placehol="password"
+                sect="true"
               />
-              <Text style={{ flexDirection: "row", color: 95 }}>Password</Text>
-              <TextInput
-                style={styles.input}
-                secureTextEntry={true}
-                placeholder="Passwords"
+              <Text style={{ flexDirection: "row", color: 95 }}>
+                <MaterialIcons name="lock-outline" size={20} color="black" />
+                Password
+              </Text>
+
+              <Input
+                icons='<MaterialCommunityIcons name="email-outline" size={15} color="black" />'
+                tshow="Password"
+                keybtype="password"
+                placehol="password"
+                sect="true"
               />
             </View>
           </ScrollView>
@@ -66,6 +77,7 @@ export default function login({ navigation }) {
           <View>
             <Botton title="Register" navi="login" />
           </View>
+
           <TouchableOpacity onPress={() => navigation.navigate("login")}>
             <View>
               <Text style={styles.opacity}>Already have Account? Login</Text>

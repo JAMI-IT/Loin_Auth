@@ -6,25 +6,22 @@ import styles from "./styling";
 const Botton = (props) => {
   const navigation = useNavigation();
   const name = props.title;
-  const bgcolor = "";
+  const bgcolor = props.bg;
+  const txtclr = props.textclr;
 
-  const colors = () => {
-    if (props.bg == "#5956e9") {
-      bgcolor = "white";
-    } else {
-      bgcolor = "#5956e9";
-    }
-    console.log("bgcolor");
-  };
   return (
     <TouchableOpacity onPress={() => navigation.navigate(props.navi)}>
-      <View style={[styles.bview, { bottom: 30 }]}>
+      <View
+        style={[
+          styles.bview,
+          { backgroundColor: bgcolor == "#5956e9" ? "white" : "#5956e9" },
+        ]}
+      >
         <Text
           style={{
             fontSize: 24,
             fontWeight: "bold",
-            color: "white",
-            backgroundColor: bgcolor,
+            color: txtclr == "white" ? "#5956e9" : "white",
           }}
         >
           {name}
