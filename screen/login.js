@@ -1,60 +1,87 @@
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Alert,
+  SafeAreaView,
+} from "react-native";
 import React from "react";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
+import { useState, useCallback } from "react";
 import styles from "../component/styling";
 import Botton from "../component/Botton";
 import Input from "../component/Input";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function login({ navigation }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [pshow, setpshow] = useState(true);
+  const [eyes, seteyes] = useState("eye");
+  const handlelogin = useCallback(() => {
+    if (!email) {
+      Alert.alert("Please enter your Email");
+    } else if (!password) {
+      Alert.alert("Please enter your  Password");
+    } else {
+      navigation.navigate("signup");
+    }
+  }, [email, password]);
+
   return (
-    <View style={styles.container}>
-      <View style={[styles.header]}>
-        <Text style={styles.htext}> Wellcome Back</Text>
+    <SafeAreaView style={styles.container}>
+      <View
+        style={{
+          height: 200,
+          alignItems: "center",
+        }}
+      >
+        <Text style={styles.htext}> Wellcome </Text>
+        <Text style={styles.htext}>Back</Text>
       </View>
       <View style={styles.footer}>
         <View>
-          <Text style={{ flexDirection: "row", color: 95 }}>
-            <MaterialCommunityIcons
-              name="email-outline"
-              size={15}
-              color="black"
-            />
-            Password
-          </Text>
+          <Text style={{ fontSize: 18, marginBottom: 20 }}>Log-In</Text>
+        </View>
+        <View>
           <Input
-            icons=""
+            icon={<FontAwesome5 name="voicemail" size={24} color="black" />}
+            iTxt="Email"
+            valu={email}
+            setvalu={setEmail}
             tshow="Email"
             keybtype="email"
             placehol="Email @"
-            sect="fale"
+            sect={false}
           />
-          <Text style={{ flexDirection: "row", color: 95 }}>
-            <MaterialIcons name="lock-outline" size={20} color="black" />
-            Password
-          </Text>
           <Input
-            icons='<MaterialCommunityIcons name="email-outline" size={15} color="black" />'
+            icon={<FontAwesome5 name="lock" size={20} color="black" />}
+            eye={<FontAwesome5 name={eyes} size={20} color="black" />}
+            beys={<FontAwesome5 name="eye-slash" size={20} color="black" />}
+            rclick={eyes}
+            setrclick={seteyes}
+            paswrd={pshow}
+            setpaswrd={setpshow}
+            setvalu={setPassword}
+            iTxt="Password"
+            valu={password}
             tshow="Password"
             keybtype="password"
             placehol="password"
-            sect="true"
           />
         </View>
         <TouchableOpacity>
           <Text style={styles.opacity}>Forget Password?</Text>
         </TouchableOpacity>
 
-        <View
-          style={{ justifyContent: "center", alignItems: "center", top: 80 }}
-        >
-          <Botton title="Login" navi="signup" />
-
+        <View style={{ alignItems: "center", marginTop: 40 }}>
+          <TouchableOpacity onPress={() => handlelogin()}>
+            <Botton title="Login" navi="signup" />
+          </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate("signup")}>
             <Text style={styles.opacity}>Creat Account</Text>
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

@@ -1,23 +1,40 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import styles from "../component/styling";
 import Button from "../component/Botton";
-export default function splash() {
+export default function splash({ navigation }) {
   return (
     <View style={styles.scontainer}>
-      <View style={{ top: 40 }}>
-        <Text style={styles.shtext}>Find Your Gadget</Text>
-      </View>
-      <View style={styles.simage}>
-        <Image
+      <View style={{ flex: 0.9 }}>
+        <View
           style={{
-            width: "100%",
-            resizeMode: "contain",
+            flex: 1,
+            justifyContent: "space-around",
+            alignItems: "center",
           }}
-          source={require("../assets/p1.png")}
-        />
+        >
+          <Text style={styles.shtext}>Find Your Gadget</Text>
+        </View>
+        <View style={[styles.simage]}>
+          <Image
+            style={{
+              resizeMode: "contain",
+              width: "100%",
+            }}
+            source={require("../assets/p1.png")}
+          />
+        </View>
       </View>
-      <Button title="Get Started" navi="login" bg="#5956e9" textclr="white" />
+      <View style={{ flex: 0.1, marginTop: 10 }}>
+        <TouchableOpacity onPress={() => navigation.navigate("login")}>
+          <Button
+            title="Get Started"
+            navi="login"
+            bg="#5956e9"
+            textclr="white"
+          />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }

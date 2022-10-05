@@ -6,34 +6,33 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   shtext: {
-    flex: 0,
-    // backgroundColor: "red",
+    flex: 1,
+    padding: 20,
     color: "#fff",
     font: "Raleway",
-    fontSize: 60,
+    fontSize: 55,
     fontWeight: "bold",
     textAlign: "center",
   },
   simage: {
-    marginBottom: 30,
+    paddingHorizontal: 10,
     alignItems: "center",
-    width: "100%",
-    padding: 10,
   },
   container: {
     flex: 1,
     backgroundColor: "#5956e9",
   },
   header: {
-    height: 180,
+    height: 160,
     alignItems: "center",
     justifyContent: "center",
   },
   htext: {
     color: "#fff",
     font: "Raleway",
+    alignItems: "center",
+    justifyContent: "center",
     fontSize: 60,
-
     fontWeight: "bold",
   },
   main: {
@@ -43,7 +42,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
   },
   footer: {
-    height: 600,
+    flex: 1,
     backgroundColor: "orange",
     paddingHorizontal: 25,
     padding: 30,
@@ -62,7 +61,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderBottomWidth: 1,
-    marginBottom: 30,
+    marginVertical: 10,
   },
   opacity: {
     color: "blue",
@@ -70,7 +69,6 @@ const styles = StyleSheet.create({
   bview: {
     width: 250,
     height: 60,
-    bottom: 30,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,
