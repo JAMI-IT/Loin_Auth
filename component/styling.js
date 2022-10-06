@@ -1,5 +1,9 @@
 import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
+  emailValidation: {
+    color: "red",
+    alignSelf: "flex-end",
+  },
   scontainer: {
     flex: 1,
     backgroundColor: "#5956e9",
